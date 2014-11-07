@@ -38,8 +38,15 @@ module Recurly
       amount_remaining_in_cents
       line_items
       transactions
+      terms_and_conditions
+      customer_notes
     )
     alias to_param invoice_number
+
+    def self.to_xml(attrs)
+      invoice = new attrs
+      invoice.to_xml
+    end
 
     # Marks an invoice as paid successfully.
     #
